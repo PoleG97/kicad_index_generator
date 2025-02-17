@@ -1,0 +1,1 @@
+# kicad_index_generator
