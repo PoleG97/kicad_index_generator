@@ -1,3 +1,6 @@
+>![WARNING]
+README work in progress
+
 # Generador de Índice para KiCad
 
 Este proyecto es una herramienta en Python que permite generar de forma automatizada un índice (o tabla de contenido) para esquemáticos de KiCad. Incluye opciones para personalizar tamaños de fuente, idioma, distancias entre columnas y más, de manera que puedas ajustar el índice a tus necesidades.
