@@ -1,4 +1,4 @@
->[!WARNING]
+>[!ERROR]
 README work in progress
 
 # Generador de Índice para KiCad
