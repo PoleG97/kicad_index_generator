@@ -82,6 +82,7 @@ Puedes editar estos valores sin necesidad de modificar el código Python. La pr�
 
 >[!TIP]
 > Para ejecutarlo en segundo plano
+>
 >`nohup python3 /ruta/kicad_index_creator.py > /dev/null 2>&1 &`
 
 ## Contribución
