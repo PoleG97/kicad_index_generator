@@ -80,6 +80,10 @@ save_in_new_file = false
 
 Puedes editar estos valores sin necesidad de modificar el código Python. La próxima vez que ejecutes la aplicación, tomará en cuenta los cambios del `config.ini`.
 
+>[!TIP]
+> Para ejecutarlo en segundo plano
+>`nohup python3 /ruta/kicad_index_creator.py > /dev/null 2>&1 &`
+
 ## Contribución
 
 Si deseas contribuir a este proyecto, puedes:
