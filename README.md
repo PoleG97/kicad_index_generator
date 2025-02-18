@@ -1,5 +1,3 @@
->[!WARNING]
-README work in progress
 
 # Generador de Índice para KiCad
 
@@ -13,6 +11,10 @@ Este proyecto es una herramienta en Python que permite generar de forma automati
 - Ofrece la posibilidad de copiar el resultado al portapapeles para pegarlo directamente en KiCad.
 - Permite guardar la configuración y el índice en un archivo `.sch`, así como recargarlo en cualquier momento.
 
+![alt text](doc/image.png)
+
+Este es el estilo de índice uqe crea el script
+
 ## Características
 
 - **Interfaz gráfica sencilla**: Añade, edita o elimina páginas mediante cuadros de diálogo.
@@ -25,12 +27,22 @@ Este proyecto es una herramienta en Python que permite generar de forma automati
 
 ## Requisitos
 
-- **Python 3.7+** (o versión posterior).
+- **Python 3.11+** (o versión posterior).
 - **Librerías estándar**: `tkinter`, `configparser`, `json`, `os`, `sys` (vienen incluidas con Python).
-- **Pyperclip**: Para copiar el texto al portapapeles. Puedes instalarlo con:
-  ```bash
-  pip install pyperclip
-  ```
+- **Pyperclip**: Para copiar el texto al portapapeles. Puedes instalarlo 
+- **tkinter**: Para la interfaz gráfica. En sistemas Linux, puede que necesites instalar el paquete `python3-tk`. 
+
+Puedes instalar **tkinter** en Ubuntu con el siguiente comando:
+
+```bash
+sudo apt-get install python3-tk
+```
+
+Puedes instalar los requerimientos con el siguiente comando:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Instalación y uso
 
@@ -42,6 +54,9 @@ Para **ejecutar** la aplicación:
 
 ```bash
 python index_generator.py
+```
+```bash
+python3 index_generator.py
 ```
 
 *(Asumiendo que el archivo principal se llama `index_generator.py`.)*
