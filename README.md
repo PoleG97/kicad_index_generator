@@ -1,81 +1,80 @@
+# Index Generator for KiCad
 
-# Generador de Índice para KiCad
+This project is a Python tool that allows you to automatically generate an index (or table of contents) for KiCad schematics. It includes options to customize font sizes, language, column spacing, and so you can tailor the index to your needs.
 
-Este proyecto es una herramienta en Python que permite generar de forma automatizada un índice (o tabla de contenido) para esquemáticos de KiCad. Incluye opciones para personalizar tamaños de fuente, idioma, distancias entre columnas y más, de manera que puedas ajustar el índice a tus necesidades.
+## What is it for?
 
-## ¿Para qué sirve?
-
-- Facilita la creación de un índice de páginas dentro de un proyecto de KiCad.
-- Permite añadir y editar páginas desde una interfaz gráfica (Tkinter).
-- Genera el texto en el formato correcto para KiCad (versión 7 o superior).
-- Ofrece la posibilidad de copiar el resultado al portapapeles para pegarlo directamente en KiCad.
-- Permite guardar la configuración y el índice en un archivo `.sch`, así como recargarlo en cualquier momento.
+- Facilitates the creation of a page index within a KiCad project.
+- Allows adding and editing pages through a graphical interface (Tkinter).
+- Generates text in the correct format for KiCad (version 8 or higher)(could works in previous version, but NOT TESTED).
+- Offers the option to copy the result to the clipboard for direct pasting into KiCad.
+- Enables saving the configuration and index to a `.sch` file, as well as reloading it at any time.
 
 ![alt text](doc/image.png)
 
-Este es el estilo de índice uqe crea el script
+This is the style of the index that the script generates.
 
-## Características
+## Features
 
-- **Interfaz gráfica sencilla**: Añade, edita o elimina páginas mediante cuadros de diálogo.
-- **Ajuste de fuentes**: Cambia el tamaño del texto para el título, la versión, los encabezados y el contenido de las páginas.
-- **Guardado en archivo**:  
-  - Puedes sobrescribir siempre el mismo archivo `indice_generado.sch` (por defecto).  
-  - O bien seleccionar un archivo nuevo cada vez que generes el índice.
-- **Carga de índice**: Si ya tenías un índice generado, puedes cargarlo y seguir editándolo.
-- **Archivo de configuración `config.ini`**: Todos los valores por defecto (tamaños de fuente, idioma, etc.) están centralizados en un archivo `config.ini`, lo que facilita su modificación sin tocar el código.
+- **Simple graphical interface**: Add, edit, or delete pages using dialog boxes.
+- **Font adjustment**: Change text size for the title, version, headers, and page content.
+- **File saving options**:  
+  - You can always overwrite the same `index_gen.sch` file (default).  
+  - Or select a new file each time you generate the index.
+- **Load index**: If you already have a generated index, you can load it and continue editing.
+- **`config.ini` configuration file**: All default values (font sizes, language, etc.) are centralized in a `config.ini` file, making it easy to modify settings without changing the code.
 
-## Requisitos
+## Requirements
 
-- **Python 3.11+** (o versión posterior).
-- **Librerías estándar**: `tkinter`, `configparser`, `json`, `os`, `sys` (vienen incluidas con Python).
-- **Pyperclip**: Para copiar el texto al portapapeles. Puedes instalarlo 
-- **tkinter**: Para la interfaz gráfica. En sistemas Linux, puede que necesites instalar el paquete `python3-tk`. 
+- **Python 3.11+** (or later)(could works in previous version, but NOT TESTED).
+- **Standard libraries**: `tkinter`, `configparser`, `json`, `os`, `sys`.
+- **Pyperclip**: For copying text to the clipboard. You can install it with `pip install pyperclip`:
+- **Tkinter**: For the graphical interface. On Linux systems, you may need to install the `python3-tk` package.
 
-Puedes instalar **tkinter** en Ubuntu con el siguiente comando:
+You can install **tkinter** on Debian based images using the following command:
 
 ```bash
 sudo apt-get install python3-tk
 ```
 
-Puedes instalar los requerimientos con el siguiente comando:
+You can install the required dependencies (pip) with:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Instalación y uso
+## Installation and Usage
 
-1. **Clona o descarga este repositorio** en tu máquina local.
-2. Asegúrate de tener instalado Python 3 y la librería `pyperclip`.
-3. Si no existe un archivo `config.ini`, el script creará uno automáticamente con valores por defecto al ejecutarse.
+1. **Clone or download this repository** to your local machine.
+2. Ensure you have satisfied the requirements.
+3. If a `config.ini` file does not exist, the script will automatically create one with default values when executed.
 
-Para **ejecutar** la aplicación:
+To **run** the application:
 
 ```bash
-python index_generator.py
+python kicad_index_generator.py
 ```
 ```bash
-python3 index_generator.py
+python3 kicad_index_generator.py
 ```
 
-*(Asumiendo que el archivo principal se llama `index_generator.py`.)*
+*(Assuming the main file is named `kicad_index_generator.py`.)*
 
-### Pasos en la aplicación
+### Application Steps
 
-1. **Nombre del Proyecto**: Rellena el campo con el nombre que quieras mostrar en el índice.  
-2. **Versión**: Indica la versión (por ejemplo, `v2.3`).  
-3. **Distancia entre columnas**: Ajusta la separación horizontal entre la columna de contenido y la de número de página (por defecto 150).  
-4. **Idioma en Inglés**: Marca esta casilla si quieres que los encabezados aparezcan como `Content` y `Sheet` en vez de `Contenido` y `Hoja`.  
-5. **Guardar en archivo nuevo (no sobrescribir)**: Si se marca, al generar el índice te preguntará dónde guardarlo. De lo contrario, usará (y sobrescribirá) el archivo `indice_generado.sch`.  
-6. **Añadir Página**: Abre un cuadro de diálogo para añadir una nueva entrada (nombre de página y número de hoja).  
-7. **Generar Índice**: Crea el índice con las entradas listadas, lo guarda en el archivo elegido y copia el texto al portapapeles.  
-8. **Cargar Archivo**: Permite abrir un `.sch` previamente generado y recuperar sus páginas para editarlas de nuevo.  
-9. **Ajustar Tamaño de Textos**: Abre una ventana donde puedes cambiar el tamaño de la fuente para el título, versión, encabezados y páginas.
+1. **Project Name**: Fill in the field with the name you want to display in the index.  
+2. **Version**: Enter the version (e.g., `v2.3`).  
+3. **Column Spacing**: Adjust the horizontal spacing between the content column and the page number column (default is 110).  
+4. **Language in English**: Check this box if you want the headers to appear as `Content` and `Sheet` instead of `Contenido` and `Hoja`.  
+5. **Save in new file (don't overwrite)**: If checked, the application will ask where to save the index each time. Otherwise, it will use (and overwrite) the file `indice_generado.sch`.  
+6. **Add Page**: Opens a dialog to add a new entry (page name and sheet number).  
+7. **Generate Index**: Creates the index with the listed entries, saves it to the selected file, and copies the text to the clipboard.  
+8. **Load File**: Allows you to open a previously generated `.sch` file and retrieve its pages for editing.  
+9. **Adjust Text Sizes**: Opens a window where you can change the font size for the title, version, headers, and pages.
 
-## Archivo de configuración `config.ini`
+## `config.ini` Configuration File
 
-El archivo `config.ini` contiene los valores por defecto para la aplicación. Por ejemplo:
+The `config.ini` file contains the default values for the application. For example:
 
 ```ini
 [DEFAULTS]
@@ -84,27 +83,18 @@ font_size_version = 10
 font_size_header = 5
 font_size_page = 4
 default_spacing = 150
-default_language = es
+default_language = en
 save_in_new_file = false
 ```
 
-- `font_size_title` / `font_size_version` / `font_size_header` / `font_size_page`: Tamaños de fuente por defecto.  
-- `default_spacing`: Distancia entre columnas por defecto.  
-- `default_language`: `es` para español o `en` para inglés.  
-- `save_in_new_file`: `true` para que, por defecto, se guarde siempre en un archivo nuevo; `false` para sobrescribir.
+- `font_size_title` / `font_size_version` / `font_size_header` / `font_size_page`: Default font sizes.  
+- `default_spacing`: Default column spacing.  
+- `default_language`: `es` for Spanish or `en` for English.  
+- `save_in_new_file`: `true` to always save in a new file by default; `false` to overwrite.
 
-Puedes editar estos valores sin necesidad de modificar el código Python. La próxima vez que ejecutes la aplicación, tomará en cuenta los cambios del `config.ini`.
+You can edit these values without modifying the Python code. The next time you run the application, it will apply the changes from `config.ini`.
 
 >[!TIP]
-> Para ejecutarlo en segundo plano
+> To run it in the background without showing errors:
 >
->`nohup python3 /ruta/kicad_index_creator.py > /dev/null 2>&1 &`
-
-## Contribución
-
-Si deseas contribuir a este proyecto, puedes:
-
-- **Crear un fork** de este repositorio y enviar tus mejoras mediante pull requests.
-- **Reportar problemas** o sugerir nuevas funcionalidades en la sección de [Issues](../../issues).
-
-¡Toda ayuda es bienvenida! 
+>`nohup python3 /path/kicad_index_creator.py > /dev/null 2>&1 &`
